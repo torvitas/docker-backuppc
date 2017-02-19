@@ -4,7 +4,7 @@ RUN apk --update --no-cache add \
         bash \
         lighttpd \
         lighttpd-mod_auth \
-        backuppc \
+        backuppc\<3.4 \
         perl-cgi \
         rsync \
         openssh-client \
