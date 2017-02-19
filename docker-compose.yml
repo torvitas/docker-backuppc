@@ -1,0 +1,22 @@
+version: "3.1"
+services:
+    backuppc:
+        image: torvitas/backuppc
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        environment:
+            VIRTUAL_HOST: "backuppc.*"
+            CERT_NAME: "dev"
+        networks:
+            - proxy
+            - default
+        volumes:
+            - var.lib:/var/lib/BackupPC
+            - etc:/etc/BackupPC
+volumes:
+    var.lib:
+    etc:
+networks:
+    proxy:
+        external: true
